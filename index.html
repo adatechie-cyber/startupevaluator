@@ -45,7 +45,7 @@
     --offwhite: #EDE9E3;
     --dark:   #1A1825;
     --text-main: #F8F6F2;
-    --text-muted: rgba(248,246,242,0.62);
+    --text-muted: rgba(248,246,242,0.72);
     --glass-bg: rgba(45,42,110,0.22);
     --glass-border: rgba(248,246,242,0.10);
     --shadow-color: rgba(26,24,37,0.55);
@@ -358,7 +358,7 @@
   .stat-value span { color: var(--orange); font-style: italic; }
   .stat-label {
     font-size: 0.75rem; letter-spacing: 0.16em; text-transform: uppercase;
-    color: var(--text-muted); margin-top: var(--spacing-1);
+    color: rgba(248,246,242,0.80); margin-top: var(--spacing-1);
   }
   .stat-orgs {
     display: flex; gap: var(--spacing-2); margin-top: var(--spacing-2); flex-wrap: wrap;
@@ -394,7 +394,7 @@
 
   .section-body {
     font-size: clamp(0.9rem, 1.6vw, 1.05rem);
-    color: var(--text-muted); max-width: 560px; line-height: 1.85;
+    color: rgba(248,246,242,0.80); max-width: 560px; line-height: 1.85;
   }
 
   .divider {
@@ -483,7 +483,7 @@
     margin-bottom: var(--spacing-2);
   }
   .service-desc {
-    font-size: 0.87rem; color: var(--text-muted); line-height: 1.75;
+    font-size: 0.87rem; color: rgba(248,246,242,0.82); line-height: 1.75;
   }
   .service-tag {
     display: inline-block; margin-top: var(--spacing-3);
@@ -570,18 +570,19 @@
   }
   .timeline-year {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 0.82rem; color: var(--orange);
+    font-size: 0.85rem; color: #F06000;
     letter-spacing: 0.08em; padding-top: 2px; text-align: right;
-    padding-right: var(--spacing-3);
+    padding-right: var(--spacing-3); font-weight: 400;
   }
   .timeline-org {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(1rem, 1.8vw, 1.2rem);
-    font-weight: 400; color: var(--white);
-    margin-bottom: 4px;
+    font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+    font-weight: 600; color: #F8F6F2;
+    margin-bottom: 5px; letter-spacing: 0.01em;
   }
   .timeline-role {
-    font-size: 0.8rem; color: var(--text-muted); letter-spacing: 0.08em;
+    font-size: 0.82rem; color: rgba(248,246,242,0.85);
+    letter-spacing: 0.04em; font-weight: 400;
   }
 
   /* ═══════════════════════════════════════
@@ -626,7 +627,7 @@
     font-weight: 400; color: var(--white);
     margin-bottom: var(--spacing-2);
   }
-  .step-desc { font-size: 0.84rem; color: var(--text-muted); line-height: 1.75; }
+  .step-desc { font-size: 0.84rem; color: rgba(248,246,242,0.82); line-height: 1.75; }
 
   /* ═══════════════════════════════════════
      CLIENTS / INSTITUTIONS
@@ -840,6 +841,80 @@
   /* ═══════════════════════════════════════
      SVG ICONS (inline lucide-style)
   ═══════════════════════════════════════ */
+
+  /* ═══════════════════════════════════════
+     CASCADE FUNDS / FSTP LIST
+  ═══════════════════════════════════════ */
+  .funds-list {
+    display: flex; flex-direction: column; gap: 0;
+    margin-top: var(--spacing-4);
+  }
+
+  .fund-row {
+    display: grid; grid-template-columns: 72px 1fr;
+    gap: var(--spacing-3);
+    padding: var(--spacing-3) 0;
+    border-bottom: 0.5px solid rgba(248,246,242,0.07);
+    position: relative;
+    transition: background var(--dur) cubic-bezier(0.23,1,0.32,1);
+  }
+  .fund-row:hover {
+    background: rgba(240,96,0,0.04);
+    border-radius: 2px;
+  }
+  .fund-row::before {
+    content: '';
+    position: absolute; left: 71px; top: 0; bottom: 0;
+    width: 0.5px; background: rgba(240,96,0,0.20);
+  }
+
+  .fund-year {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.78rem; color: #F06000;
+    letter-spacing: 0.06em; text-align: right;
+    padding-right: var(--spacing-2);
+    padding-top: 3px; line-height: 1.4;
+    font-weight: 400;
+    white-space: nowrap;
+  }
+
+  .fund-content { padding-left: var(--spacing-2); }
+
+  .fund-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(0.95rem, 1.6vw, 1.12rem);
+    font-weight: 600; color: #F8F6F2;
+    line-height: 1.3; margin-bottom: 4px;
+    letter-spacing: 0.01em;
+  }
+
+  .fund-meta {
+    font-size: 0.8rem; color: rgba(248,246,242,0.80);
+    line-height: 1.55; letter-spacing: 0.03em;
+    font-weight: 300;
+  }
+
+  .fund-tags {
+    display: flex; gap: 6px; flex-wrap: wrap;
+    margin-top: 6px;
+  }
+
+  .ftag {
+    font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 2px 8px;
+    background: rgba(45,42,110,0.45);
+    border: 0.5px solid rgba(154,165,168,0.25);
+    border-radius: 1px; color: rgba(154,165,168,0.95);
+    font-weight: 400;
+  }
+
+  .fund-row:hover .fund-name { color: #ffffff; }
+  .fund-row:hover .ftag {
+    border-color: rgba(240,96,0,0.35);
+    color: rgba(240,96,0,0.9);
+    background: rgba(240,96,0,0.08);
+  }
+
   .icon { display: inline-block; width: 20px; height: 20px; vertical-align: middle; }
   .icon-sm { width: 16px; height: 16px; }
   .icon-lg { width: 28px; height: 28px; }
@@ -981,15 +1056,6 @@
       <div class="service-tag">LP Strategy · Deal Flow · Governance</div>
     </div>
 
-    <div class="service-card">
-      <div class="service-icon">
-        <svg class="icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
-      </div>
-      <div class="service-title">Market & Sector Analysis</div>
-      <div class="service-desc">Deep-dive reports on emerging sectors, competitive landscapes, and investment thesis development — particularly for CEE, Balkans, and Southern Mediterranean markets.</div>
-      <div class="service-tag">CEE · Balkans · Emerging Markets</div>
-    </div>
-
   </div>
 </section>
 
@@ -997,17 +1063,73 @@
 
 <!-- ═══ ABOUT ═══ -->
 <section id="about">
+  <!-- LEFT: Cascade Funds & FSTP Projects -->
   <div>
-    <div class="about-image-area">
-      <div class="about-portrait">
-        <div class="about-portrait-inner">VC</div>
+    <div class="section-eyebrow">Evaluated Programmes</div>
+    <h2 class="section-title">Cascade Funds<br>&amp; <em>FSTP Projects</em><br>2018 — 2026</h2>
+    <p class="section-body" style="margin-bottom: var(--spacing-6);">As an accredited expert evaluator, I have assessed startups and SMEs across Europe's most competitive cascade funding and FSTP instruments.</p>
+
+    <div class="funds-list">
+      <div class="fund-row">
+        <div class="fund-year">2018–20</div>
+        <div class="fund-content">
+          <div class="fund-name">STARTS4Water — Cascade Fund</div>
+          <div class="fund-meta">EIT Climate-KIC · 42 projects evaluated · Water innovation &amp; climate tech</div>
+          <div class="fund-tags"><span class="ftag">FSTP</span><span class="ftag">EIT</span></div>
+        </div>
       </div>
-      <div class="about-badge">
-        <div class="badge-num">8</div>
-        <div class="badge-label">Years FT</div>
+      <div class="fund-row">
+        <div class="fund-year">2019–21</div>
+        <div class="fund-content">
+          <div class="fund-name">NGI Atlantic — Open Call</div>
+          <div class="fund-meta">European Commission / NGI · Transatlantic internet innovation · 60+ proposals</div>
+          <div class="fund-tags"><span class="ftag">H2020</span><span class="ftag">Cascade</span></div>
+        </div>
+      </div>
+      <div class="fund-row">
+        <div class="fund-year">2020–22</div>
+        <div class="fund-content">
+          <div class="fund-name">EBRD Star Venture — Balkans</div>
+          <div class="fund-meta">EBRD Regional · Early-stage deeptech &amp; fintech · Albania, N. Macedonia, Serbia</div>
+          <div class="fund-tags"><span class="ftag">EBRD</span><span class="ftag">FSTP</span></div>
+        </div>
+      </div>
+      <div class="fund-row">
+        <div class="fund-year">2021–23</div>
+        <div class="fund-content">
+          <div class="fund-name">EIC Accelerator — Pilot Batch</div>
+          <div class="fund-meta">European Innovation Council · Blended finance · Deep tech SMEs across EU27</div>
+          <div class="fund-tags"><span class="ftag">EIC</span><span class="ftag">Horizon Europe</span></div>
+        </div>
+      </div>
+      <div class="fund-row">
+        <div class="fund-year">2022–23</div>
+        <div class="fund-content">
+          <div class="fund-name">DIH² Cascade Funding</div>
+          <div class="fund-meta">Digital Innovation Hubs / EC · Robotics &amp; AI manufacturing SMEs · 35 evaluations</div>
+          <div class="fund-tags"><span class="ftag">Cascade</span><span class="ftag">AI/Robotics</span></div>
+        </div>
+      </div>
+      <div class="fund-row">
+        <div class="fund-year">2023–24</div>
+        <div class="fund-content">
+          <div class="fund-name">Western Balkans Enterprise Development</div>
+          <div class="fund-meta">RCC / EC DG NEAR · Growth-stage startups · 6 WB economies</div>
+          <div class="fund-tags"><span class="ftag">DG NEAR</span><span class="ftag">FSTP</span></div>
+        </div>
+      </div>
+      <div class="fund-row">
+        <div class="fund-year">2024–26</div>
+        <div class="fund-content">
+          <div class="fund-name">InvestEU — Innovation Window</div>
+          <div class="fund-meta">EIF / EC · Equity &amp; quasi-equity evaluation · Cross-border VC mandates</div>
+          <div class="fund-tags"><span class="ftag">InvestEU</span><span class="ftag">EIF</span></div>
+        </div>
       </div>
     </div>
   </div>
+
+  <!-- RIGHT: Timeline -->
   <div>
     <div class="section-eyebrow">The Expert</div>
     <h2 class="section-title">Built on<br><em>Real Institutional</em><br>Experience</h2>
@@ -1018,7 +1140,7 @@
         <div class="timeline-year">2016–<br>2020</div>
         <div>
           <div class="timeline-org">European Bank for Reconstruction and Development</div>
-          <div class="timeline-role">Startup Evaluator & Investment Analyst · EBRD Venture Initiative</div>
+          <div class="timeline-role">Startup Evaluator &amp; Investment Analyst · EBRD Venture Initiative</div>
         </div>
       </div>
       <div class="timeline-item">
@@ -1032,14 +1154,14 @@
         <div class="timeline-year">2020–<br>2024</div>
         <div>
           <div class="timeline-org">Pan-European Venture Funds</div>
-          <div class="timeline-role">Senior Advisor · Portfolio Strategy & Deal Origination</div>
+          <div class="timeline-role">Senior Advisor · Portfolio Strategy &amp; Deal Origination</div>
         </div>
       </div>
       <div class="timeline-item">
         <div class="timeline-year">2024–<br>Now</div>
         <div>
           <div class="timeline-org">Independent Practice</div>
-          <div class="timeline-role">Startup Evaluator & VC Strategist · Global Mandate</div>
+          <div class="timeline-role">Startup Evaluator &amp; VC Strategist · Global Mandate</div>
         </div>
       </div>
     </div>
